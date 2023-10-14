@@ -23,4 +23,4 @@ def openai():
 
         return "Your name is "+ fname + lname
 
-    return render_template('openai.html')
+    return render_template('robot_town.html')
