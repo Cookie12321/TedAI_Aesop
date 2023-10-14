@@ -2,7 +2,7 @@
 
 from flask import Flask,request,render_template, url_for
 from json import loads,dumps,load
-from ai_test import test_openai
+from ai_test import test_openai, test_sqlite3
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -11,6 +11,7 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 @app.route('/', methods=['GET'])
 def home():
     test_openai()
+    test_sqlite3()
     print("HELOOOOOOOOOOOOOOOO\n\n\n")
     return render_template('home.html')
 
