@@ -18,9 +18,12 @@ def home():
 @app.route('/robot_town', methods=['GET', 'POST'])
 def openai():
     if request.method == "POST":
-        fname = request.form.get("fname")
-        lname = request.form.get("lname") 
+        prompt_1_answer = request.form.get("prompt_1_answer")
+        prompt_2_answer = request.form.get("prompt_2_answer")
+        prompt_3_answer = request.form.get("prompt_3_answer")
+        prompt_4_answer = request.form.get("prompt_4_answer")
+        prompt_5_answer = request.form.get("prompt_5_answer")
 
-        return "Your name is "+ fname + lname
+        return f"Prompt answers: {prompt_1_answer}\n{prompt_2_answer}\n{prompt_3_answer}\n{prompt_4_answer}\n{prompt_5_answer}"
 
     return render_template('robot_town.html')
