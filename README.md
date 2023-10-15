@@ -22,10 +22,17 @@ cd TedAI_Aesop
 The following will build and deploy the Flask backend container locally.
 
 ```bash
+docker-compose build
 docker-compose up
 ```
 
 Go to http://localhost:8080/ to view the backend.
+
+Then go into the React client folder.
+
+```bash
+cd aesop_client/
+```
 
 One of the following commands will start the React frontend component locally.
 
