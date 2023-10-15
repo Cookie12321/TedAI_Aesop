@@ -1,0 +1,44 @@
+{
+    "scales": [
+      {
+        "name": "COM", 
+        "description": "(Complexity of representation of people) 1 = is egocentric, or sometimes confuses thoughts, feelings, or attributes of the self and others; 3 = tends to describe people’s personalities and internal states in minimally elaborated, relatively simplistic ways, or splits representations into good and bad; 5 = representations of the self and others are stereotypical or conventional, is able to integrate both good and bad characteristics of self and others, has awareness of impact on others; 7 = is psychologically minded, insight into self and others, differentiated and shows considerable complexity",
+        "range": [1, 2, 3, 4, 5, 6, 7]
+      },
+      {
+        "name": "AFF",
+        "description": "(Affective quality of representations) (i.e., what the person expects from relationships, and how s/he tends to experience significant others and describe significant relationships): 1 = malevolent, abusive, caustic; 3 = largely negative or unpleasant, but not abusive; 5 = mixed, neither primarily positive nor primarily negative, (needs to have some positive to be scored 5); 7 = generally positive expectations of relationships (but not pollyannaish), a favorable and affirmative view of relationships Note: where affective quality is absent, bland, or limited, code 4",
+        "range": [1, 2, 3, 4, 5, 6, 7]
+      },
+      {
+        "name": "EIR",
+        "description": "(Emotional investment in relationships) 1 = tends to focus primarily on his/her own needs in relationships, has tumultuous relationships, or has few if any relationships; 3 = somewhat shallow relationships, or only alludes to others; 5 = demonstrates conventional sentiments of friendship, caring, love, and empathy; 7 = tends to have deep, committed relationships with mutual sharing, emotional intimacy, interdependence, and respect, positive connectedness and appreciation of others Note: where only one character is described and no relationship is depicted, code 2",
+        "range": [1, 2, 3, 4, 5, 6, 7]
+      },
+      {
+        "name": "EIM",
+        "description": "(Emotional investment in values and moral standards) 1 = behaves in selfish, inconsiderate, self-indulgent or aggressive ways without any sense of remorse or guilt; 3 = shows signs of some internalization of standards (e.g., avoids doing “bad” things because knows will be punished for them, thinks in relatively childlike ways about right and wrong, etc.), or is morally harsh and rigid toward self or others; 5 = is invested in moral values and tries to live up to them; 7 = thinks about moral questions in a way that combines abstract thought, a willingness to challenge or question convention, and genuine compassion and thoughtfulness in actions (i.e., not just intellectualized)\nNote: where no moral concerns are raised in a particular story, code 4",
+        "range": [1, 2, 3, 4, 5, 6, 7]  
+      },
+      {
+        "name": "SC",
+        "description": "(Understanding of social causality) 1 = narrative accounts of interpersonal experiences are confused, distorted, extremely sparse, or difficult to follow, limited awareness and coherence; 3 = understands people in relatively simple, but sensible ways, or describes interpersonal events in ways that largely make sense but may have a few gaps or incongruities; 5 = tends to provide straightforward narrative accounts of interpersonal events in which people’s actions result from the way they experience or interpret situations; 7 = tends to provide particularly coherent narrative accounts of interpersonal events, and to understand people very well, understands the impact of their behavior on others and others behavior on them. Note: where subject describes interpersonal events as if they just happen, with little sense of why people behave the way they do (i.e., alogical rather than illogical stories that seem to lack any causal understanding), code 2",
+        "range": [1, 2, 3, 4, 5, 6, 7]
+      },
+      {  
+        "name": "AGG",
+        "description": "(Experience and management of aggressive impulses) 1 = physically assaultive, destructive, sadistic, or in poor control of aggression, impulsive; 3 = angry, passive-aggressive, denigrating, or physically abusive to self (or fails to protect self from abuse); 5 = avoids dealing with anger by denying it, defending against it, or avoiding confrontations; 7 = can express anger and aggression and assert self appropriately Note: if no anger content in the story, code 4",
+        "range": [1, 2, 3, 4, 5, 6, 7]
+      },
+      {
+        "name": "SE",
+        "description": "(Self-esteem) 1 = views self as loathsome, evil, rotten, contaminating, or globally bad; 3 = has low self-esteem (e.g., feels inadequate, inferior, self-critical, etc.) or is unrealistically grandiose; 5 = displays a range of positive and negative feelings toward the self; 7 = tends to have realistically positive feelings about him/herself\nNote: needs to have some positive to be scored a 5 or above",
+        "range": [1, 2, 3, 4, 5, 6, 7]
+      },
+      {
+        "name": "ICS",
+        "description": "(Identity and coherence of self) 1 = fragmented sense of self, has multiple personalities; 3 = views of , or feelings about, the self fluctuate widely and unpredictably; unstable sense of self; 5 = identity and self-definition are not a major concern or preoccupation; 7 = feels like an integrated person with long-term ambitions and goals\nNote: ambiguity about a goal is still considered a goal and may be scored in the higher range",
+        "range": [1, 2, 3, 4, 5, 6, 7]
+      }
+    ]
+  }

@@ -1,0 +1,31 @@
+{
+    "COM": {
+        "score" : 1,
+        "description" : "1-2 line reasoning here"
+    },
+    "AFF": {
+        "score" : 1,
+        "description" : "1-2 line reasoning here"
+    },
+    "EIR": {
+        "score" : 1,
+        "description" : "1-2 line reasoning here"
+    },
+    "EIM": {
+        "score" : 1,
+        "description" : "1-2 line reasoning here"
+    },
+    "SC": {
+        "score" : 1,
+        "description" : "1-2 line reasoning here"
+    },
+    "AGG": {
+        "score" : 1,
+        "description" : "1-2 line reasoning here"
+    },
+    "ICS": {
+        "score" : 1,
+        "description" : "1-2 line reasoning here"
+    }
+
+}

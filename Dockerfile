@@ -5,4 +5,7 @@ COPY requirements.txt /
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r /requirements.txt
 
+COPY response_example.json /
+COPY scoring_criteria.json /
+
 EXPOSE 5000
