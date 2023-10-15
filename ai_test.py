@@ -7,20 +7,29 @@ def test_openai():
     print("open ai hehe")
     response = openai.Completion.create(
         engine="text-davinci-003",
-        prompt="Tell me about the covid 19.",
+        prompt="Tell me about iphones.",
         max_tokens=60,
     )
     print(response)
 
 
-def test_sqlite3():
+def initialize_prompt_db():
     with sqlite3.connect('mydb.sqlite') as conn:
         cur = conn.cursor()
-        cur.execute("drop table if exists users")
-        cur.execute('CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT)')
-        cur.execute('INSERT INTO users (name) VALUES (?)', ('John Doe',))
+        cur.execute("drop table if exists prompt_results")
+        cur.execute('create table prompt_results (id INTEGER PRIMARY KEY, prompt_answers TEXT)')
         conn.commit()
 
-        res = cur.execute('SELECT * FROM users')
-        print("SQLITE3 HEHEHHEE:")
-        print(res.fetchone())
+
+def insert_into_prompt_db(prompt_answers):
+    with sqlite3.connect('mydb.sqlite') as conn:
+        cur = conn.cursor()
+        cur.execute('INSERT INTO prompt_results (prompt_answers) VALUES (?)', (f'{prompt_answers}',))
+        conn.commit()
+
+
+def view_prompts_db():
+    with sqlite3.connect('mydb.sqlite') as conn:
+        cur = conn.cursor()
+        res = cur.execute('SELECT * FROM prompt_results')
+        return str(res.fetchall())
