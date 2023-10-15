@@ -92,8 +92,24 @@ def generate_story(combined_prompts_and_answers):
             },
         ]
     )
+
     story = chat_completion["choices"][0]["message"]["content"]
-    return story
+    end_character = (".", "!", "?")
+    book = []
+    current_page = ""
+    end_char_count = 0
+
+    for char in story:
+        current_page += char
+        if char in end_character:
+            end_char_count += 1
+            if end_char_count % 3 == 0:
+                book.append(current_page.replace("\n\n", " ").strip())
+                current_page = ""
+
+    if current_page != "":
+        book.append(current_page.replace("\n\n", " ").strip())
+    return book
     
 
 def psychoanalyze_prompt_responses(combined_prompt_answers):
