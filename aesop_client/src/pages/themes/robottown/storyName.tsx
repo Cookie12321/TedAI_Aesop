@@ -15,25 +15,52 @@ interface Response {
 }
 
 interface FormValues {
-    responses: Response []
+    responses: Response [];
+    conflict_name: string;
 }
 
-const StoryPageForm = () => {
+export default function StoryPageForm() {
     // Get router
     const router = useRouter();
+
+      // Get query param and cast to Story type
+    const { story } = router.query as { story: string };
+    const storyData = JSON.parse(story) as Story;
+
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
     const [formValues, setFormValues] = useState<FormValues>({
-        responses: []
+        responses: [],
+        conflict_name: storyData.conflict_name
     });
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(formValues.responses)
-        // formValues.responses will contain all responses 
+        console.log(formValues);
+        setIsSubmitting(true);
+        
+        try {
+          const response = await fetch('http://localhost:8080/api/submit_exercise', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formValues)
+          });
+    
+          if(!response.ok) {
+            throw new Error(response.statusText);
+          }
+    
+          alert('Form submitted!');
+          
+        } catch(error) {
+          alert('Error submitting form');
+        }
+        
+        setIsSubmitting(false);
       };
 
-  // Get query param and cast to Story type
-  const { story } = router.query as { story: string };
-  const storyData = JSON.parse(story) as Story;
 
   return (
     <form className="space-y-4" onSubmit={handleSubmit}>
@@ -49,7 +76,7 @@ const StoryPageForm = () => {
           <h1 className="text-3xl font-bold text-indigo-600 mb-4">
             User Input Exercise
           </h1>
-        
+
           {/* Map through prompts */}
           {storyData.prompts.map((prompt, index) => (
 
@@ -84,8 +111,9 @@ const StoryPageForm = () => {
             <button 
                 className="bg-blue-500 text-white rounded p-2"
                 type="submit"
+                disabled={isSubmitting}
             >
-                Submit
+                {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
         </div>
     </div>
@@ -94,4 +122,3 @@ const StoryPageForm = () => {
   );
 }
 
-export default StoryPageForm;

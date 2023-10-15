@@ -4,3 +4,4 @@ gevent>=1.4
 openai
 Flask-SQLAlchemy==2.5.1
 SQLAlchemy
+flask-cors
