@@ -51,7 +51,13 @@ export default function StoryPageForm() {
           if(!response.ok) {
             throw new Error(response.statusText);
           }
-    
+          const data = await response.json();
+          console.log(data);
+          router.push({
+            pathname: '/themes/robottown/result',
+            query: { data: JSON.stringify(data) }
+          });
+
           alert('Form submitted!');
           
         } catch(error) {

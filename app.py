@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask,request,render_template
+from flask import Flask,request,render_template, jsonify
 from helper_functions import initialize_db, insert_to_prompts_table, view_prompts_table, view_scores_table, generate_story, psychoanalyze_prompt_responses
 import json
 from flask_cors import CORS
@@ -26,10 +26,10 @@ def processSubmission():
         story_name = data["conflict_name"]
         print(story_name)
         insert_to_prompts_table(story_name, AI_Prompt)
-        generated_story = generate_story(AI_Prompt)
-        SEL_scoring = psychoanalyze_prompt_responses(AI_Prompt)
-        response =  jsonify({"generated_story": generated_story, "SEL_scoring": SEL_scoring})
-        response.headers.add('Access-Control-Allow-Origin', '*')    
+        # generated_story = generate_story(AI_Prompt)
+        # SEL_scoring = psychoanalyze_prompt_responses(AI_Prompt)
+        # return {"generated_story": generated_story, "SEL_scoring": SEL_scoring}, 200 
+        return {"generated_story":["sample p1","sample p2", "sample p3", "sample p4", "sample p5", "sample p6", "sample p7", "sample p8"], "SEL_scoring":"sample SEL Scoring"}, 200
         
         return response
     except Exception as e:
