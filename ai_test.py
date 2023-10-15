@@ -10,7 +10,7 @@ def initialize_prompt_db():
     with sqlite3.connect('mydb.sqlite') as conn:
         cur = conn.cursor()
         cur.execute("drop table if exists prompt_results")
-        cur.execute('create table prompt_results (id INTEGER PRIMARY KEY, category TEXT, prompt_answers TEXT)')
+        cur.execute('create table prompt_results (id integer primary key, category text, prompt_answers text)')
         conn.commit()
 
 
