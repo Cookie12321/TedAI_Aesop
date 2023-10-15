@@ -24,4 +24,3 @@ Add the `-d` parameter to run in background.
 Test that the container is running by executing `docker-compose ps`. Check output logs with `docker-compose logs`. To continually monitor output run `docker-compose logs --tail 100 -f`.
 
 Go to http://localhost:8080/ or run `curl http://localhost:8080`. To test the template engine add parameter `use_template` to the URL.
-
