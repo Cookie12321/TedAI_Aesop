@@ -3,6 +3,7 @@ import sqlite3
 import json
 from flask import jsonify
 
+
 def test_openai():
     openai.api_key = ""
     print("open ai hehe")
@@ -28,10 +29,14 @@ def insert_into_prompt_db(prompt_answers):
         cur.execute('INSERT INTO prompt_results (prompt_answers) VALUES (?)', (f'{prompt_answers}',))
         conn.commit()
 
-        res = cur.execute('SELECT * FROM users')
-        print("SQLITE3 HEHEHHEE:")
-        print(res.fetchone())
+
+def view_prompts_db():
+    with sqlite3.connect('mydb.sqlite') as conn:
+        cur = conn.cursor()
+        res = cur.execute('select * from prompt_results')
+        return res.fetchall()
         
+
 def open_ai_real(big_prompt_string):
     openai.api_key = ""
     with open('./scoring_criteria.json','r') as f:
