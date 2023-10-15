@@ -22,7 +22,7 @@ cd TedAI_Aesop
 The following will build and deploy the container locally.
 
 ```
-# docker-compose up
+docker-compose up
 ```
 
 Go to http://localhost:8080/.
