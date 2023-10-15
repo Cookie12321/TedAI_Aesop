@@ -7,6 +7,7 @@ Learn more about SCORS-G at https://www.scors-g.com/.
 ## Team Aesop
 
 Tony (Baek) Choi - Software Engineer
+
 Albert Le - Data Engineer
 
 ## Installation
