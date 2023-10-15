@@ -26,10 +26,10 @@ def processSubmission():
         story_name = data["conflict_name"]
         print(story_name)
         insert_to_prompts_table(story_name, AI_Prompt)
-        # generated_story = generate_story(AI_Prompt)
-        # SEL_scoring = psychoanalyze_prompt_responses(AI_Prompt)
-        # return {"generated_story": generated_story, "SEL_scoring": SEL_scoring}, 200 
-        return {"generated_story":["sample p1","sample p2", "sample p3", "sample p4", "sample p5", "sample p6", "sample p7", "sample p8"], "SEL_scoring":"sample SEL Scoring"}, 200
+        generated_story = generate_story(AI_Prompt)
+        SEL_scoring = psychoanalyze_prompt_responses(AI_Prompt)
+        return {"generated_story": generated_story, "SEL_scoring": SEL_scoring}, 200 
+        # return {"generated_story":["sample p1","sample p2", "sample p3", "sample p4", "sample p5", "sample p6", "sample p7", "sample p8"], "SEL_scoring":"sample SEL Scoring"}, 200
         
         return response
     except Exception as e:
