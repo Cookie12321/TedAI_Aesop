@@ -13,6 +13,15 @@ const ResultPage = () => {
   console.log(data);
   const response_data = JSON.parse(data) as api_response;
 
+  async function handleOnClick() {
+    const response = await fetch('http://localhost:8080/api/get_scores');
+    const json = await response.json();
+    console.log(json);
+    router.push({
+      pathname: '/themes/robottown/dataVis',
+      query: { data: JSON.stringify(json) }
+    });
+  }
 
   console.log(response_data);
     // Get API response from query
@@ -37,6 +46,10 @@ const ResultPage = () => {
         
       </HTMLFlipBook>
       </div>
+      <button className='bg-indigo-500 text-white absolute bottom-4 right-4 p-4 rounded self-start'
+              onClick={handleOnClick}>
+        Data Visualization
+      </button>
     </div>
     )
   }
