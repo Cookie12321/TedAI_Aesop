@@ -28,13 +28,13 @@ def view_prompts_db():
         return res.fetchall()
         
 
-def open_ai_real(big_prompt_string):
+def psychoanalyze_prompt_responses(combined_prompt_answers):
     openai.api_key = API_KEY
     with open('./scoring_criteria.json','r') as f:
         scoring_criteria = json.load(f)
     with open('./response_example.json','r') as f:
         response_example = json.load(f)
         
-    chat_completion = openai.ChatCompletion.create(model='gpt-3.5-turbo', messages=[{'role':'system','content':f'score user responses based on : {json.dumps(scoring_criteria)}. Respond in json format like this:{json.dumps(response_example)}. Irrelevant or not understandable responses get a 4, and a description of "not applicable"'},{'role':'user','content':big_prompt_string}])
+    chat_completion = openai.ChatCompletion.create(model='gpt-3.5-turbo', messages=[{'role':'system','content':f'score user responses based on : {json.dumps(scoring_criteria)}. Respond in json format like this:{json.dumps(response_example)}. Irrelevant or not understandable responses get a 4, and a description of "not applicable"'},{'role':'user','content': combined_prompt_answers}])
     result_json = chat_completion['choices'][0]['message']['content']
     return result_json

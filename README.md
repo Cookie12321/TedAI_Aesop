@@ -33,4 +33,4 @@ We use Flask, React, Docker, and the OpenAI API.
 
 ## Thanks
 
-Many thanks to Kunbbib because this is a fork off of https://github.com/Kungbib/flask-docker-example, which we used to help jumpstart our Flask web app on Docker.
+Many thanks to Kungbib because this is a fork off of https://github.com/Kungbib/flask-docker-example, which we used to help jumpstart our Flask web app on Docker.
