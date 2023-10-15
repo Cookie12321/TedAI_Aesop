@@ -12,20 +12,34 @@ Albert Le - Data Engineer
 
 ## Installation
 
-```
+```bash
 git clone https://github.com/Cookie12321/TedAI_Aesop
 cd TedAI_Aesop
 ```
 
 ## Run
 
-The following will build and deploy the container locally.
+The following will build and deploy the Flask backend container locally.
 
-```
+```bash
 docker-compose up
 ```
 
-Go to http://localhost:8080/.
+Go to http://localhost:8080/ to view the backend.
+
+One of the following commands will start the React frontend component locally.
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Go to http://localhost:3000 to view the frontend.
 
 ## Tech Stack
 
