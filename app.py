@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
-from flask import Flask, jsonify,request,render_template
+from flask import Flask,request,render_template
 from helper_functions import initialize_prompt_db, insert_into_prompt_db, view_prompts_db, generate_story, psychoanalyze_prompt_responses
 import json
 from flask_cors import CORS
-
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -12,7 +11,7 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/', methods=['GET'])
 def home():
-    initialize_prompt_db()
+    initialize_db()
     return render_template('home.html')
 
 
@@ -48,15 +47,15 @@ def missing_parts():
             q4 = "What do the robots do when they find out who is taking their parts?"
             q5 = "How do the robots ultimately recover their missing parts, and what do they learn from this experience?"
 
-            p1 = request.form.get("prompt_1_answer")
-            p2 = request.form.get("prompt_2_answer")
-            p3 = request.form.get("prompt_3_answer")
-            p4 = request.form.get("prompt_4_answer")
-            p5 = request.form.get("prompt_5_answer")
-            insert_into_prompt_db("missing_parts", p1 + p2 + p3 + p4 + p5)
-            story = generate_story(q1 + p1 + q2 + p2 + q3 + p3 + q4 + p4 + q5 + p5)
-            scores = psychoanalyze_prompt_responses(p1 + p2 + p3 + p4 +p5)
-            return f"{story}<br><br>Prompt answer analysis: {scores}<br><br>See database: http://localhost:8080/prompts_db"
+        p1 = request.form.get("prompt_1_answer")
+        p2 = request.form.get("prompt_2_answer")
+        p3 = request.form.get("prompt_3_answer")
+        p4 = request.form.get("prompt_4_answer")
+        p5 = request.form.get("prompt_5_answer")
+        insert_to_prompts_table("missing_parts", p1 + p2 + p3 + p4 + p5)
+        story = generate_story(q1 + p1 + q2 + p2 + q3 + p3 + q4 + p4 + q5 + p5)
+        scores = psychoanalyze_prompt_responses(p1 + p2 + p3 + p4 +p5)
+        return f"{story}<br><br>Prompt answer analysis: {scores}<br><br>See prompts database: http://localhost:8080/get_prompt_results<br><br>See scores database:http://localhost:8080/get_scores"
 
         return render_template('missing_parts.html')
     except Exception as e:
@@ -77,14 +76,19 @@ def broken_bridge():
         p3 = request.form.get("prompt_3_answer")
         p4 = request.form.get("prompt_4_answer")
         p5 = request.form.get("prompt_5_answer")
-        insert_into_prompt_db("broken_bridge", p1 + p2 + p3 + p4 + p5)
+        insert_to_prompts_table("broken_bridge", p1 + p2 + p3 + p4 + p5)
         story = generate_story(q1 + p1 + q2 + p2 + q3 + p3 + q4 + p4 + q5 + p5)
         scores = psychoanalyze_prompt_responses(p1 + p2 + p3 + p4 + p5)
-        return f"{story}<br><br>Prompt answer analysis: {scores}<br><br>See database: http://localhost:8080/prompts_db"
+        return f"{story}<br><br>Prompt answer analysis: {scores}<br><br>See prompts database: http://localhost:8080/get_prompt_results<br><br>See scores database:http://localhost:8080/get_scores"
 
     return render_template('broken_bridge.html')
 
 
-@app.route('/prompts_db', methods=['GET'])
-def prompts_db():
-    return view_prompts_db()
+@app.route('/get_prompt_results', methods=['GET'])
+def get_prompt_results_from_db():
+    return view_prompts_table()
+
+
+@app.route('/get_scores', methods=['GET'])
+def get_scores_from_db():
+    return view_scores_table()
