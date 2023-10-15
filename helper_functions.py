@@ -49,32 +49,26 @@ def view_prompts_table():
     
 
 def view_scores_table(limit=20):
-    final_json = {}
-    final_json["COM"] = []
-    final_json["AFF"] = []
-    final_json["EIR"] = []
-    final_json["EIM"] = []
-    final_json["SC"] = []
-    final_json["AGG"] = []
-    final_json["SE"] = []
-    final_json["ICS"] = []
-    
     with sqlite3.connect('mydb.sqlite') as conn:
         cur = conn.cursor()
         res = cur.execute(f'select com, aff, eir, eim, sc, agg, se, ics from scorsg_scores order by insert_ts asc limit {limit}')
         results = res.fetchall()
+
+        json_list = []
         
         for row in results:
-            final_json["COM"].append(row[0])
-            final_json["AFF"].append(row[1])
-            final_json["EIR"].append(row[2])
-            final_json["EIM"].append(row[3])
-            final_json["SC"].append(row[4])
-            final_json["AGG"].append(row[5])
-            final_json["SE"].append(row[6])
-            final_json["ICS"].append(row[7])
+            row_json = {}
+            row_json["COM"] = row[0]
+            row_json["AFF"] = row[1]
+            row_json["EIR"] = row[2]
+            row_json["EIM"] = row[3]
+            row_json["SC"] = row[4]
+            row_json["AGG"] = row[5]
+            row_json["SE"] = row[6]
+            row_json["ICS"] = row[7]
+            json_list.append(row_json)
 
-    return final_json
+    return json_list
         
 
 def generate_story(combined_prompts_and_answers):

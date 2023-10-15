@@ -1,6 +1,6 @@
-# Educational Choose-Your-Own-Adventure AI Storytelling with Psychological Analysis
+# AI Aesop: Educational Choose-Your-Own-Adventure AI Storytelling with Psychological Analysis
 
-Our project for the TedAI Hackathon uses OpenAI to create a transformative educational experience with narrative storytelling and psychological analysis. We utilize the Social Cognition and Object Relations Scale-Global Rating Method (SCORS-G) as a rubric to measure the user's mental headspace based on their answers to the story-telling prompts.
+AI Aesop uses OpenAI to create a transformative educational experience with narrative storytelling and psychological analysis. We utilize the Social Cognition and Object Relations Scale-Global Rating Method (SCORS-G) as a rubric to measure the user's mental headspace based on their answers to the story-telling prompts.
 
 Learn more about SCORS-G at https://www.scors-g.com/.
 
