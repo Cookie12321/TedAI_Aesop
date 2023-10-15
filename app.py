@@ -86,7 +86,7 @@ def get_prompt_results_from_db():
     return view_prompts_table()
 
 
-@app.route('/get_scores', methods=['GET'])
+@app.route('/api/get_scores', methods=['GET'])
 def get_scores_from_db():
     try:
         return view_scores_table(), 200
