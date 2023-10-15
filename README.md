@@ -32,6 +32,7 @@ Then go into the React client folder.
 
 ```bash
 cd aesop_client/
+npm install next@latest react@latest react-dom@latest
 ```
 
 One of the following commands will start the React frontend component locally.
