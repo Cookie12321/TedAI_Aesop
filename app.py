@@ -89,6 +89,6 @@ def get_prompt_results_from_db():
 @app.route('/get_scores', methods=['GET'])
 def get_scores_from_db():
     try:
-      return view_scores_table(), 200
+        return view_scores_table(), 200
     except Exception as e:
         return {"message": "error"}, 500

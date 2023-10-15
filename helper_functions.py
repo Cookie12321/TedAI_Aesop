@@ -3,7 +3,7 @@ import sqlite3
 import json
 
 
-API_KEY = "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"
+API_KEY = ""
 
 
 def initialize_db():
