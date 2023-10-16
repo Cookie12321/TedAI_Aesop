@@ -21,6 +21,8 @@ cd TedAI_Aesop
 
 ## Run
 
+Enter in your OpenAI API key at `helper_functions.py`.
+
 The following will build and deploy the Flask backend container locally.
 
 ```bash
