@@ -1,6 +1,6 @@
-# AI Aesop: Educational Choose-Your-Own-Adventure AI Storytelling with Psychological Analysis
+# Aesop.ai: Educational Choose-Your-Own-Adventure AI Storytelling with Psychological Analysis
 
-AI Aesop uses OpenAI to create a transformative educational experience with narrative storytelling and psychological analysis. Aesop prompts the user to create context regarding a story's setting, and then writes out a story based on the user's responses to the prompts. Also, Aesop utilizes the Social Cognition and Object Relations Scale-Global Rating Method (SCORS-G) as a rubric to measure the user's mental headspace based on their answers to the story-telling prompts.
+Aesop.ai uses OpenAI to create a transformative educational experience with narrative storytelling and psychological analysis. Aesop prompts the user to create context regarding a story's setting, and then writes out a story based on the user's responses to the prompts. Also, Aesop utilizes the Social Cognition and Object Relations Scale-Global Rating Method (SCORS-G) as a rubric to measure the user's mental headspace based on their answers to the story-telling prompts.
 
 Students will be flexing their literary caps and critical thinking skills when filling out prompts. Educators and parents will have potential early warnings signs of declining mental health amongs Aesop users from the AI analysis of the user prompt responses.
 
@@ -21,6 +21,8 @@ cd TedAI_Aesop
 
 ## Run
 
+Enter in your OpenAI API key at `helper_functions.py`.
+
 The following will build and deploy the Flask backend container locally.
 
 ```bash
@@ -36,6 +38,8 @@ Then go into the React client folder.
 ```bash
 cd aesop_client/
 npm install next@latest react@latest react-dom@latest
+npm install react-pageflip
+npm install recharts
 ```
 
 One of the following commands will start the React frontend component locally.
