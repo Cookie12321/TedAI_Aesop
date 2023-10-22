@@ -24,6 +24,7 @@ cd TedAI_Aesop
 The following will build and deploy the Flask backend container locally.
 
 ```bash
+colima start # mac apple silicon only
 docker-compose build
 docker-compose up
 ```

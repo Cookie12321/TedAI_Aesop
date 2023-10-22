@@ -18,13 +18,9 @@ def home():
 @app.route('/api/submit_exercise', methods=['POST'])
 def processSubmission():
     try:
-        print("1000000000000000000000000000000000000000")
         data = request.get_json()
-        print(data)
         AI_Prompt = json.dumps(data["responses"])
-        print(AI_Prompt)
         story_name = data["conflict_name"]
-        print(story_name)
         insert_to_prompts_table(story_name, AI_Prompt)
         generated_story = generate_story(AI_Prompt)
         SEL_scoring = psychoanalyze_prompt_responses(AI_Prompt)
